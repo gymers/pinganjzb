@@ -16,13 +16,13 @@ composer require gymers/pinganjzb
 
 ## 开始
 
-- 复制平安银行jar包到服务器jdk环境**\jre\lib\ext**目录
+- 复制平安银行jar包到服务器jdk环境**jre\lib\ext**目录
 
-- 自定义目录
+- 创建自定义目录
 
 - 将lib目录里面**JavaBridge.jar**复制到自定义目录
 
-- 新建conf目录(这个目录可在配置文件中查看，也可自定义)与**JavaBridge.jar**同级
+- 新建conf目录(这个目录可在平安银行配置文件中查看，也可自定义)与**JavaBridge.jar**同级
 
 - 复制平安银行证书到conf目录
 
@@ -38,7 +38,7 @@ java -jar JavaBridge.jar SERVLET_LOCAL:8081(自定义端口)
 <?php
     $config = [
         'java_hosts' => '127.0.0.1:8081',  // 主机+启动端口
-        'java_log_level' => 2, //日志级别
+        'java_log_level' => 2, // 日志级别
         'properties_path' => '', // 配置文件路径
         'FundSummaryAcctNo' => '',  // 资金汇总账号
         'MrchCode' => '',  // 商户号（4位）
