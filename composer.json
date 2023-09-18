@@ -1,0 +1,26 @@
+{
+    "name": "gymers/pinganjzb",
+    "description": "pinganjzb sdk for php",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Gymers\\PinganJzb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gymers\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gymers",
+            "email": "2537332273@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "7.5"
+    }
+}
