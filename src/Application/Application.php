@@ -17,7 +17,7 @@ class Application
 
         define('JAVA_HOSTS', $this->config->java_hosts ?? '127.0.0.1:8081');
 
-        require_once dirname(__FILE__).'\java.inc.php';
+        require_once dirname(__FILE__).'/java.inc.php';
 
         $this->PABankSDK = Java("com.pabank.sdk.PABankSDK");
 
