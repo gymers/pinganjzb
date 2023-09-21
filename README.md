@@ -2,7 +2,7 @@
 
 ## 概览
 
-基于**java-bridge**搭建的php版本的平安银行见证宝开发库
+基于**java-bridge**搭建的php版本平安银行见证宝开发库
 
 ## 环境要求
 
@@ -17,13 +17,9 @@ composer require gymers/pinganjzb
 ## 开始
 
 - 复制平安银行jar包到服务器jdk环境**jre\lib\ext**目录
-
 - 创建自定义目录
-
 - 将lib目录里面**JavaBridge.jar**复制到自定义目录
-
-- 新建conf目录(这个目录可在平安银行配置文件中查看，也可自定义)与**JavaBridge.jar**同级
-
+- 新建与**JavaBridge.jar**同级的**conf**目录(这个目录可在平安银行配置文件中查看，根据配置文件中定义)
 - 复制平安银行证书到conf目录
 
 ## 启动
@@ -44,11 +40,11 @@ java -jar JavaBridge.jar SERVLET_LOCAL:8081(自定义端口)
         'MrchCode' => '',  // 商户号（4位）
         'uid' => '', // 用户短号（6位、可在配置文件中查看）
         'response_type' => 'object',  // 返回类型：支持object、array选项（默认array）
-	];
+    ];
 
-	$service = new SupAcctIdBalanceQuery();（对应平安银行服务ID）
+    $service = new SupAcctIdBalanceQuery(); //（对应平安银行服务ID）
 
-	$response = PinganJzb::config($config)->request($service);
+    $response = PinganJzb::config($config)->request($service);
 ```
 
 ## 更多例子
