@@ -15,7 +15,9 @@ class Application
     {
         $this->config = $config;
 
-        define('JAVA_HOSTS', $this->config->java_hosts ?? '127.0.0.1:8081');
+        if (!defined('JAVA_HOSTS')) {
+            define('JAVA_HOSTS', $this->config->java_hosts ?? '127.0.0.1:8081');
+        }
 
         require_once dirname(__FILE__).'/java.inc.php';
 
