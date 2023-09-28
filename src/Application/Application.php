@@ -21,7 +21,7 @@ class Application
             define('JAVA_HOSTS', $this->config->java_hosts ?? '127.0.0.1:8081');
         }
 
-        require_once dirname(__FILE__).'/java.inc.php';
+        require_once dirname(__FILE__) . '/java.inc.php';
 
         $this->PABankSDK = Java('com.pabank.sdk.PABankSDK');
 
@@ -42,7 +42,7 @@ class Application
 
         $service->FundSummaryAcctNo = $service->FundSummaryAcctNo ?: $this->config->FundSummaryAcctNo;
         $service->MrchCode = $service->MrchCode ?: $this->config->MrchCode;
-        $service->CnsmrSeqNo = $service->CnsmrSeqNo ?: $this->config->uid.date('ymd').substr(microtime(true) * 10000, 4);
+        $service->CnsmrSeqNo = $service->CnsmrSeqNo ?: $this->config->uid . date('ymd') . substr(microtime(true) * 10000, 4);
         foreach ($service as $k => $v) {
             if ('' === $v) {
                 unset($service->$k);
@@ -52,11 +52,11 @@ class Application
         $request = json_encode((array) $service);
         $response = java_values($this->PABankSDK->getInstance()->apiInter($request, $service_id));
 
-        if (isset($this->config->response_type) && 'object' == $this->config->response_type) {
-            $classname = '\\Gymers\\PinganJzb\\Responses\\'.$service_id.'Response';
+        if ('object' == $this->config->response_type) {
+            $classname = '\\Gymers\\PinganJzb\\Responses\\' . $service_id . 'Response';
             $response = new $classname($response);
             if (!$response instanceof Response) {
-                throw new ResponseException($service_id.'Response');
+                throw new ResponseException($service_id . 'Response');
             }
         }
 
